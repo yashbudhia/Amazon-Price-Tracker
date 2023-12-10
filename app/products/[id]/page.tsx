@@ -150,7 +150,7 @@ const ProductDetails = async ({ params: { id } }: Props) => {
               ></PriceInfoCard>
             </div>
           </div>
-          <Modal />
+          <Modal productId={id} />
         </div>
       </div>
       <div className="flex flex-col gap-16 ">
