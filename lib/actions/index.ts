@@ -5,6 +5,8 @@ import { revalidatePath } from "next/cache";
 import { connectToDB } from "../mongoose";
 import { scrapeAmazonProduct } from "../scraper";
 import { getAveragePrice, getHighestPrice, getLowestPrice } from "../utils";
+import { User } from "@/types";
+import { generateEmailBody } from "../nodemailer";
 
 export async function scrapeAndStoreProduct(productUrl: string) {
   if (!productUrl) {
@@ -68,6 +70,32 @@ export async function getAllProducts() {
     const products = await Product.find();
 
     return products;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export async function addUserEmailToProduct(
+  ProductId: string,
+  UserEmail: string
+) {
+  try {
+    //Send our first email
+    const product = await Product.findById(ProductId);
+    if (!product) return;
+
+    const userExists = product.users.some(
+      (user: User) => user.email === UserEmail
+    );
+    if (!userExists) {
+      product.users.push({ email: UserEmail });
+
+      await product.save();
+
+      const EmailContent = generateEmailBody(product, "WELCOME");
+
+      await sendEmail(EmailContent, [userEmail]);
+    }
   } catch (error) {
     console.log(error);
   }
