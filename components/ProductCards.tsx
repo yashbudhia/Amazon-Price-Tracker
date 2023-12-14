@@ -1,7 +1,7 @@
 import React from "react";
-import Product from "./../lib/models/product.model";
 import Link from "next/link";
 import Image from "next/image";
+import { Product } from "@/types";
 
 interface Props {
   product: Product;
