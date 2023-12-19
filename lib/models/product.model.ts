@@ -1,5 +1,5 @@
 import { timeStamp } from "console";
-import mongoose from "mongoose";
+import mongoose, { mongo } from "mongoose";
 
 const productSchema = new mongoose.Schema(
   {
@@ -29,7 +29,12 @@ const productSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
+const userSchema = new mongoose.Schema({
+  email: { type: String },
+  password: { type: String },
+});
+
 const Product =
   mongoose.models.Product || mongoose.model("Product", productSchema);
 
-export default Product;
+export default { Product };

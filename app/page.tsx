@@ -5,6 +5,7 @@ import HeroCarousel1 from "./../components/heroCarousel1";
 import { getAllProducts } from "@/lib/actions";
 import ProductCard from "@/components/ProductCards";
 
+
 const Home = async () => {
   const allProducts = await getAllProducts();
 

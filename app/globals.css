@@ -16,6 +16,10 @@
 }
 
 @layer utilities {
+  .form-input {
+    @apply border block rounded border-gray-400 h-12 w-80 text-sm shadow-sm placeholder-slate-400 focus:outline-none  focus:ring-1 focus:ring-green-500 focus:invalid:ring-pink-500
+    disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none indent-4;
+  }
   .btn {
     @apply py-4 px-4 bg-secondary hover:bg-opacity-70 rounded-[30px] text-white text-lg font-semibold;
   }

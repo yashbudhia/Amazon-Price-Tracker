@@ -1,3 +1,6 @@
+"use client";
+
+import SignIn from "@/components/SignIn";
 import React from "react";
 
 const Signin = () => {
@@ -15,8 +18,7 @@ const Signin = () => {
               <input
                 type="email"
                 placeholder="Enter your Email"
-                className="border block rounded border-gray-400 h-12 w-80 text-sm shadow-sm placeholder-slate-400 focus:outline-none  focus:ring-1 focus:ring-green-500 focus:invalid:ring-pink-500
-                 disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none indent-4"
+                className="form-input"
               />
             </div>
             <br />
@@ -24,8 +26,7 @@ const Signin = () => {
               <input
                 type="password"
                 placeholder="Enter your Password"
-                className="border block rounded border-gray-400 h-12 w-80 text-sm shadow-sm placeholder-slate-400 focus:outline-none
-                 focus:ring-green-600 focus:ring-1  focus:invalid:ring-pink-500 indent-4"
+                className="form-input"
               />
             </div>
             <br />
@@ -35,6 +36,7 @@ const Signin = () => {
               </button>
 
               <p className="py-7 text-sm text-gray-600">Or sign in with </p>
+              <SignIn />
             </div>
           </form>
         </div>
